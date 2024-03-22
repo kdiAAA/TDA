@@ -44,4 +44,58 @@ The configuration for TDA hyperparameters in `configs/dataset.yaml` can be tailo
 
 For ease of reference, the configurations provided aim to achieve optimal performance across datasets on two benchmarks, consistent with the results documented in our paper. However, specific tuning of these parameters for negative cache could potentially unlock further enhancements in performance. Adjusting parameters like `alpha` and `beta` within the positive cache lets you fine-tune things to match the unique needs of each dataset.
 
+### Running
+To execute the TDA, navigate to the `scripts` directory, where you'll find 4 bash scripts available. Each script is designed to apply the method to two benchmarks, utilizing either the ResNet50 or ViT/B-16 as the backbone architecture. The scripts process the datasets sequentially, as indicated by the order divided by '/' in the script. WandB logging is activated by default. If you wish to deactivate this feature, simply omit the `--wandb-log` argument. 
 
+Below are instructions for running TDA on both Out-of-Distribution (OOD) and Cross-Domain benchmarks using various backbone architectures. Follow the steps suited to your specific needs:"
+
+#### OOD Benchmark
+* **ResNet50**: Run TDA on the OOD Benchmark using the ResNet50 model:
+```
+bash ./scripts/run_ood_benchmark_rn50.sh 
+```
+* **ViT/B-16**: Run TDA on the OOD Benchmark using the ViT/B-16 model.
+```
+bash ./scripts/run_ood_benchmark_vit.sh 
+```
+
+#### Cross-Domain Benchmark
+* **ResNet50**: Run TDA on the Cross-Domain Benchmark using the ResNet50 model:
+```
+bash ./scripts/run_cd_benchmark_rn50.sh 
+```
+* **ViT/B-16**: Run TDA on the Cross-Domain Benchmark using the ViT/B-16 model.
+```
+bash ./scripts/run_cd_benchmark_vit.sh 
+```
+
+
+### Results
+#### Comparisons in terms of efficiency and effectiveness on ImageNet. 
+| Models          | Testing Time | Accuracy | Gain   |
+|-----------------|:------------:|:--------:|:------:|
+| [CLIP-ResNet-50](https://arxiv.org/abs/2103.00020)  | **12min**    | 59.81    | 0      |
+| [TPT](https://arxiv.org/abs/2209.07511)            | 12h 50min    | 60.74    | +0.93  |
+| [DiffTPT](https://arxiv.org/abs/2308.06038)         | 34h 45min    | 60.80    | +0.99  |
+| **TDA (Ours)**  | **16min**    | **61.35**|**+1.54**|
+
+#### OOD Benchmark
+| Method            | ImageNet | ImageNet-A | ImageNet-V2 | ImageNet-R | ImageNet-S | Average | OOD Average |
+|-------------------|:--------:|:----------:|:-----------:|:----------:|:----------:|:-------:|:-----------:|
+| [CLIP-ResNet-50](https://arxiv.org/abs/2103.00020)    | 59.81    | 23.24      | 52.91       | 60.72      | 35.48      | 46.43   | 43.09       |
+| [CoOp](https://arxiv.org/abs/2109.01134)              | **63.33**| 23.06      | 55.40       | 56.60      | 34.67      | 46.61   | 42.43       |
+| [CoCoOp](https://arxiv.org/abs/2203.05557)            | 62.81    | 23.32      | 55.72       | 57.74      | 34.48      | 46.81   | 42.82       |
+| [Tip-Adapter](https://arxiv.org/abs/2111.03930)       | 62.03    | 23.13      | 53.97       | 60.35      | 35.74      | 47.04   | 43.30       |
+| [TPT](https://arxiv.org/abs/2209.07511)               | 60.74    | 26.67      | 54.70       | 59.11      | 35.09      | 47.26   | 43.89       |
+| [DiffTPT](https://arxiv.org/abs/2308.06038)            | 60.80    | **31.06**  | **55.80**   | 58.80      | 37.10      | 48.71   | 45.69       |
+| **TDA (Ours)**    | 61.35    | 30.29      | 55.54       | **62.58**  | **38.12**  | **49.58** | **46.63**  |
+
+#### Cross-Domain Benchmark
+| Method           | Aircraft | Caltech101 | Cars  | DTD   | EuroSAT | Flower102 | Food101 | Pets  | SUN397 | UCF101 | Average |
+|-----------------------|:-------:|:----------:|:-----:|:-----:|:-------:|:---------:|:-------:|:-----:|:------:|:------:|:-------:|
+| [CLIP-ResNet-50](https://arxiv.org/abs/2103.00020)        | 16.11    | 87.26      | 55.89 | 40.37 | 25.79   | 62.77     | 74.82   | 82.97 | 60.85  | 59.48  | 56.63   |
+| [CoOp](https://arxiv.org/abs/2109.01134)                  | 15.12    | 86.53      | 55.32 | 37.29 | 26.20   | 61.55     | 75.59   | 87.00 | 58.15  | 59.05  | 56.18   |
+| [CoCoOp](https://arxiv.org/abs/2203.05557)                | 14.61    | 87.38      | 56.22 | 38.53 | 28.73   | 65.57     | 76.20   | **88.39** | 59.61  | 57.10  | 57.23   |
+| [TPT](https://arxiv.org/abs/2209.07511)                   | 17.58    | 87.02      | 58.46 | 40.84 | 28.33   | 62.69     | 74.88   | 84.49 | 61.46  | 60.82  | 57.66   |
+| [DiffTPT](https://arxiv.org/abs/2308.06038)               | 17.60    | 86.89      | **60.71** | 40.72 | 41.04   | 63.53     | **79.21**   | 83.40 | **62.72**  | 62.67  | 59.85   |
+| **TDA (Ours)**                                            | **17.61**| **89.70**  | 57.78 | **43.74** | **42.11** | **68.74** | 77.75   | 86.18 | 62.53  | **64.18** | **61.03**  | 
