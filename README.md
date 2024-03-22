@@ -33,7 +33,7 @@ conda install pytorch torchvision cudatoolkit
 ```
 
 ### Dataset
-To set up all required datasets, kindly refer to the guidance in DATASETS.md, which incorporates steps for two benchmarks.
+To set up all required datasets, kindly refer to the guidance in [DATASETS.md](docs/DATASETS.md), which incorporates steps for two benchmarks.
 
 ## Run TDA
 ### Configs
@@ -71,7 +71,7 @@ bash ./scripts/run_cd_benchmark_vit.sh
 
 
 ### Results
-#### Comparisons in terms of efficiency and effectiveness on ImageNet. 
+#### Comparisons in terms of efficiency and effectiveness on ImageNet
 | Models          | Testing Time | Accuracy | Gain   |
 |-----------------|:------------:|:--------:|:------:|
 | [CLIP-ResNet-50](https://arxiv.org/abs/2103.00020)  | **12min**    | 59.81    | 0      |
@@ -99,3 +99,12 @@ bash ./scripts/run_cd_benchmark_vit.sh
 | [TPT](https://arxiv.org/abs/2209.07511)                   | 17.58    | 87.02      | 58.46 | 40.84 | 28.33   | 62.69     | 74.88   | 84.49 | 61.46  | 60.82  | 57.66   |
 | [DiffTPT](https://arxiv.org/abs/2308.06038)               | 17.60    | 86.89      | **60.71** | 40.72 | 41.04   | 63.53     | **79.21**   | 83.40 | **62.72**  | 62.67  | 59.85   |
 | **TDA (Ours)**                                            | **17.61**| **89.70**  | 57.78 | **43.74** | **42.11** | **68.74** | 77.75   | 86.18 | 62.53  | **64.18** | **61.03**  | 
+
+
+## Citation
+
+## Contact
+If you have any questions, feel free to create an issue in this repository or contact us via email at adilbek.karmanov@mbzuai.ac.ae or dayan.guan@ntu.edu.sg.
+
+## Acknowledgements
+Our gratitude goes to the authors of [Tip-Adapter](https://github.com/gaopengcuhk/Tip-Adapter), [TPT](https://github.com/azshue/TPT), and [CoOp/CoCoOp](https://github.com/KaiyangZhou/CoOp) for sharing their work through open-source implementation and for providing detailed instructions on data preparation.
