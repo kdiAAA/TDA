@@ -80,7 +80,7 @@ bash ./scripts/run_cd_benchmark_vit.sh
 | **TDA (Ours)**  | **16min**    | **61.35**|**+1.54**|
 
 #### OOD Benchmark
-| Method            | ImageNet | ImageNet-A | ImageNet-V2 | ImageNet-R | ImageNet-S | Average | OOD Average |
+| Method            | ImageNet (IN)| IN-A | IN-V2 | IN-R | IN-S | Average | OOD Average |
 |-------------------|:--------:|:----------:|:-----------:|:----------:|:----------:|:-------:|:-----------:|
 | [CLIP-ResNet-50](https://arxiv.org/abs/2103.00020)    | 59.81    | 23.24      | 52.91       | 60.72      | 35.48      | 46.43   | 43.09       |
 | [CoOp](https://arxiv.org/abs/2109.01134)              | **63.33**| 23.06      | 55.40       | 56.60      | 34.67      | 46.61   | 42.43       |
