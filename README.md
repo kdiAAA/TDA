@@ -23,13 +23,13 @@ Follow these steps to set up a conda environment and ensure all necessary packag
 git clone https://github.com/kdiAAA/TDA.git
 cd TDA
 
-conda create -n tda python=3.8
+conda create -n tda python=3.7
 conda activate tda
 
-pip install -r requirements.txt
+# The results are produced with PyTorch 1.12.1 and CUDA 11.3
+conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch
 
-# Install specified PyTorch, torchvision, and matching CUDA toolkit versions
-conda install pytorch torchvision cudatoolkit
+pip install -r requirements.txt
 ```
 
 ### Dataset
@@ -72,7 +72,7 @@ bash ./scripts/run_cd_benchmark_vit.sh
 
 ### Results
 #### Comparisons in terms of efficiency and effectiveness on ImageNet
-| Models          | Testing Time | Accuracy | Gain   |
+| Method          | Testing Time | Accuracy | Gain   |
 |-----------------|:------------:|:--------:|:------:|
 | [CLIP-ResNet-50](https://arxiv.org/abs/2103.00020)  | **12min**    | 59.81    | 0      |
 | [TPT](https://arxiv.org/abs/2209.07511)            | 12h 50min    | 60.74    | +0.93  |
