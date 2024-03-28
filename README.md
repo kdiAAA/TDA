@@ -105,6 +105,16 @@ bash ./scripts/run_cd_benchmark_vit.sh
 
 
 ## Citation
+```bibtex
+@article{karmanov2024efficient,
+          title={Efficient Test-Time Adaptation of Vision-Language Models},
+          author={Karmanov, Adilbek and Guan, Dayan and Lu, Shijian and El Saddik, Abdulmotaleb and Xing, Eric},
+          journal={The IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+          year={2024}
+  }
+```
+
+
 
 ## Contact
 If you have any questions, feel free to create an issue in this repository or contact us via email at adilbek.karmanov@mbzuai.ac.ae or dayan.guan@ntu.edu.sg.
