@@ -1,6 +1,6 @@
 # Efficient Test-Time Adaptation of Vision-Language Models
 > [**Efficient Test-Time Adaptation of Vision-Language Models**]()<br>
-> [Adilbek Karmanov](https://scholar.google.com/citations?user=R7GNWu0AAAAJ&hl=en), [Dayan Guan](https://dayan-guan.github.io/), [Shijian Lu](https://scholar.google.com/citations?hl=en&user=uYmK-A0AAAAJ&view=en), [Abdulmotaleb El Saddik](https://scholar.google.ca/citations?user=VcOjgngAAAAJ&hl=en), [Eric Xing](https://scholar.google.com/citations?user=5pKTRxEAAAAJ&hl=en)
+> [Adilbek Karmanov](https://www.linkedin.com/in/adilbek-karmanov/), [Dayan Guan](https://dayan-guan.github.io/), [Shijian Lu](https://scholar.google.com/citations?hl=en&user=uYmK-A0AAAAJ&view=en), [Abdulmotaleb El Saddik](https://scholar.google.ca/citations?user=VcOjgngAAAAJ&hl=en), [Eric Xing](https://scholar.google.com/citations?user=5pKTRxEAAAAJ&hl=en)
 
 Official implementation of the paper: "Efficient Test-Time Adaptation of Vision-Language Models" [CVPR 2024].
 
