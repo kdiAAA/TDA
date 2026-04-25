@@ -1,0 +1,60 @@
+experiment:
+  datasets: caltech101/dtd/eurosat/fgvc/food101/oxford_flowers/oxford_pets/stanford_cars/sun397/ucf101
+  data_root: ./dataset/
+  backbone: RN50
+  wandb_log: true
+  project: Hybrid-TDA
+  run_name_prefix: hybrid_tda_cd_rn50
+  seed: 1
+
+method:
+  logit_scale: 100.0
+  prompt_filtering:
+    enabled: true
+    selection: topk
+    topk: 2
+    percentile: 0.5
+  cache:
+    enabled: true
+    replacement_policy: loss_sorted
+    positive:
+      enabled: true
+      shot_capacity: 3
+      alpha: 2.0
+      beta: 5.0
+      label_type: topk_soft
+      topk: 2
+      entropy_threshold: 0.2
+    negative:
+      enabled: true
+      shot_capacity: 2
+      alpha: 0.117
+      beta: 1.0
+      lambda: 1.0
+      label_type: bottomk_complement
+      bottomk: 3
+      entropy_threshold:
+        lower: 0.2
+        upper: 0.5
+      mask_threshold:
+        lower: 0.03
+        upper: 1.0
+  prototype:
+    enabled: true
+    update_rule: topk_soft
+    topk: 2
+    forgetting_factor: 1.0
+    logit_scale: 100.0
+  update_target:
+    type: mixed
+  fusion:
+    design: maturity_confidence
+    maturity_rho: 0.01
+    maturity_cap: 1.0
+    fixed_cache_weight: 0.5
+    fixed_proto_weight: 0.5
+
+logging:
+  track_runtime: true
+  track_memory: true
+  print_every: 1000
